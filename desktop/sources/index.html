@@ -89,6 +89,7 @@
       left.controller.add("default","Theme","Download Themes..",() => { require('electron').shell.openExternal('https://github.com/hundredrabbits/Themes') })
 
       left.controller.add("default","Options","Set Text Area Width",() => { left.operator.start('setTextAreaColumns: ')})
+      left.controller.add("default","Options", 'Set Navi Header Chars to Show', () => { left.operator.start('setnumHeaderCharsToShow: ') })
       left.controller.add("default","Options","Save Window Size",() => { left.options.setDimensions()})
 
       left.controller.add('reader', '*', 'About', () => { require('electron').shell.openExternal('https://github.com/hundredrabbits/Left') }, 'CmdOrCtrl+,')
@@ -133,6 +134,7 @@
       left.controller.add('operator', 'Operator', 'Stop', () => { left.operator.stop() }, 'Esc')
 
       left.controller.add('operator', 'Options', 'setTextAreaColumns', () => { left.operator.start('setTextAreaColumns: ') })
+      left.controller.add('operator', 'Options', 'setnumHeaderCharsToShow', () => { left.operator.start('setnumHeaderCharsToShow: ') })
 
       left.controller.commit()
     </script>

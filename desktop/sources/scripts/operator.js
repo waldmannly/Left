@@ -179,6 +179,16 @@ function Operator (options) {
       setTimeout(() => { left.operator.stop() }, 250)
     }
   }
+
+  this.setnumHeaderCharsToShow = function (size, bang = false) {
+    if (size.length < 1) { return }
+    this.Options.setnumHeaderCharsToShow(size)
+
+    if (bang) {
+      setTimeout(() => { left.operator.stop() }, 250)
+    }
+  }
+
 }
 
 module.exports = Operator

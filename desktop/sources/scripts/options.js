@@ -6,6 +6,7 @@ function Options () {
   this.colWidth = 80
   this.w = 900
   this.h = 500
+  this.numHeaderCharsToShow = 20
 
 
   this.setDimensions = function () {
@@ -23,16 +24,22 @@ function Options () {
     // load the saved values and apply them
     if (localStorage.getItem('options')) {
       console.log(JSON.parse(localStorage.getItem('options')))
-      const { colWidth, w, h } = JSON.parse(localStorage.getItem('options'))
+      const { colWidth, w, h, numHeaderCharsToShow } = JSON.parse(localStorage.getItem('options'))
       this.colWidth = colWidth
       this.w = w
       this.h = h
+      this.numHeaderCharsToShow = numHeaderCharsToShow
       this.updateVariables()
     }
   }
 
   this.setTextAreaColumns = function (size) {
     this.colWidth = size
+    this.updateVariables()
+  }
+
+  this.setnumHeaderCharsToShow = function (size) {
+    this.numHeaderCharsToShow = size
     this.updateVariables()
   }
 
@@ -50,7 +57,8 @@ function Options () {
     localStorage.setItem('options', JSON.stringify({
       colWidth: this.colWidth, 
       w: this.w,
-      h: this.h
+      h: this.h,
+      numHeaderCharsToShow: this.numHeaderCharsToShow
     }))
   }
 
@@ -59,6 +67,7 @@ function Options () {
     this.colWidth = 80
     this.w = 900
     this.h = 500
+    this.numHeaderCharsToShow = 20
     this.updateVariables()
   }
 }

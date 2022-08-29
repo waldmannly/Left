@@ -1,7 +1,9 @@
 'use strict'
+const Options = require("./options");
 
-function Navi () {
+function Navi (options) {
   this.el = document.createElement('navi')
+  this.Options = options
 
   this.install = function (host) {
     host.appendChild(this.el)
@@ -31,7 +33,7 @@ function Navi () {
   }
 
   this._marker = function (pid, current, marker, markers) {
-    return `<li class='marker ${marker.type} ${current && current.line === marker.line ? 'active' : ''}' onclick='left.go.to_page(${pid}, ${marker.line})'><span>${marker.text}</span></li>`
+    return `<li class='marker ${marker.type} ${current && current.line === marker.line ? 'active' : ''}' onclick='left.go.to_page(${pid}, ${marker.line})'><span  style="max-width: ${this.Options.numHeaderCharsToShow}ch; display:inline-block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">${marker.text}</span></li>`
   }
 
   this.next_page = function () {

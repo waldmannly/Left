@@ -21,7 +21,7 @@ function Left () {
   this.dictionary = new Dictionary()
   this.options = new Options()
   this.operator = new Operator(this.options)
-  this.navi = new Navi()
+  this.navi = new Navi(this.options)
   this.stats = new Stats()
   this.go = new Go()
   this.project = new Project()
