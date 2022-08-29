@@ -8,17 +8,23 @@ Learn more by reading the <a href="https://100r.co/site/left.html" target="_blan
 
 You can download [builds](https://hundredrabbits.itch.io/left) for **OSX, Windows and Linux**, or if you wish to build it yourself, follow these steps:
 
+to run: 
 ```
 git clone https://github.com/hundredrabbits/Left.git
 cd Left/desktop/
 npm install
-npm start
+npm start 
+```
+
+to produce the desktop apps run: (you might have to change some paths in package.json for this to work) 
+```
+npm run build 
 ```
 
 ## Extras
 
 - This application supports the [Ecosystem Theme](https://github.com/hundredrabbits/Themes).
-- Support this project through [Patreon](https://patreon.com/100).
+- Support the original project through [Patreon](https://patreon.com/100).
 - Left's source code is licensed under [MIT](https://github.com/hundredrabbits/Left/blob/master/LICENSE) and the **images, text and assets** are licensed under [BY-NC-SA 4.0](https://github.com/hundredrabbits/Left/blob/master/LICENSE.by-nc-sa-4.0.md). View individual licenses for details.
 - Pull Requests are welcome!
 
