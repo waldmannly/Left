@@ -10,8 +10,8 @@ body navi li { display: flex; flex-direction: row; justify-content: space-betwee
 body navi li span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 body navi li::before { position: absolute; left:-15px;}
 body navi li:hover { text-decoration: none; }
-body navi li.page {}
-body navi li.header { }
+body navi li.page { padding-left:0px;}
+body navi li.header { padding-left:10px;}
 body navi li.note { padding-left:15px;}
 body navi li.note::before { content:"#"; left:0px; }
 body navi li.subheader { padding-left: 15px;}
@@ -19,14 +19,15 @@ body navi li.subheader::before { content:""; left:0px; }
 body navi li.comment { padding-left: 30px;}
 body navi li.comment::before { content:""; left:0px; }
 body navi li.changes::after { content:"*"; position: absolute; right: 15px; }
-body navi li i { padding-right:15px; }
-body navi > ul {}
+body navi li i { padding-left:10px;}
+body navi > ul { padding-left:10px;}
 body navi > ul li.marker { display: none }
 body navi > ul.active li.marker { display: block }
 body navi > ul li.active.header::before { content:"•"; }
 body navi > ul li.active.subheader::before { content:"•"; }
 body navi > ul li.active.comment::before { content:"•"; }
 body navi > ul li.active.page::before { content:"/"; }
+body navi li.page.active { padding-left:10px; }
 body stats { display: block; border-bottom: 0; margin-top: 30px; position: fixed; bottom: 0; left: 25vw; line-height: 15px; width: calc(75vw - 40px); height: 40px; overflow: auto; -webkit-user-select: none; -webkit-app-region: drag; transition: left 200ms; }
 body stats i {text-decoration: underline; }
 body stats .right { float: right; }

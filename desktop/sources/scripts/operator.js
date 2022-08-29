@@ -1,11 +1,14 @@
 'use strict'
 
+const Options = require("./options");
+
 const EOL = '\n'
 
-function Operator () {
+function Operator (options) {
   this.el = document.createElement('input'); this.el.id = 'operator'
   this.is_active = false
   this.index = 0
+  this.Options = options
 
   this.el.addEventListener('keyup', (e) => { left.operator.on_change(e, false) })
   this.el.addEventListener('keydown', (e) => { left.operator.on_change(e, true) })
@@ -167,6 +170,25 @@ function Operator () {
       left.go.to_line(target)
     }
   }
+
+  this.setTextAreaColumns = function (size, bang = false) {
+    if (size.length < 2) { return }
+    this.Options.setTextAreaColumns(size)
+
+    if (bang) {
+      setTimeout(() => { left.operator.stop() }, 250)
+    }
+  }
+
+  this.setnumHeaderCharsToShow = function (size, bang = false) {
+    if (size.length < 1) { return }
+    this.Options.setnumHeaderCharsToShow(size)
+
+    if (bang) {
+      setTimeout(() => { left.operator.stop() }, 250)
+    }
+  }
+
 }
 
 module.exports = Operator
