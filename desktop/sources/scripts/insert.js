@@ -69,6 +69,43 @@ function Insert () {
     this.stop()
   }
 
+  this.superHeader = function () {
+    const isMultiline = left.selected().match(/[^\r\n]+/g)
+
+    if (left.prev_character() === EOL && !isMultiline) {
+      left.inject('# ')
+      const date = new Date()
+      const strArray = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+      const d = date.getDate()
+      const m = strArray[date.getMonth()]
+      const y = date.getFullYear()
+      const s = '' + (d <= 9 ? '0' + d : d) + '-' + m + '-' + y
+      left.inject(s + ' ')
+      left.inject(new Date().toLocaleTimeString() + ' ')
+    } else if (isMultiline) {
+      left.inject_multiline('# ')
+      const date = new Date()
+      const strArray = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+      const d = date.getDate()
+      const m = strArray[date.getMonth()]
+      const y = date.getFullYear()
+      const s = '' + (d <= 9 ? '0' + d : d) + '-' + m + '-' + y
+      left.inject(s + ' ')
+      left.inject(new Date().toLocaleTimeString() + ' ')
+    } else {
+      left.inject_line('# ')
+      const date = new Date()
+      const strArray = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+      const d = date.getDate()
+      const m = strArray[date.getMonth()]
+      const y = date.getFullYear()
+      const s = '' + (d <= 9 ? '0' + d : d) + '-' + m + '-' + y
+      left.inject(s + ' ')
+      left.inject(new Date().toLocaleTimeString() + ' ')
+    }
+    this.stop()
+  }
+
   this.subheader = function () {
     const isMultiline = left.selected().match(/[^\r\n]+/g)
 
@@ -117,7 +154,7 @@ function Insert () {
   }
 
   this.status = function () {
-    return `<b>Insert Mode</b> c-D <i>Date</i> c-T <i>Time</i> ${left.project.paths().length > 0 ? 'c-P <i>Path</i> ' : ''}c-H <i>Header</i> c-/ <i>Comment</i> c-J <i>Dashed Line</i> Esc <i>Exit</i>.`
+    return `<b>Insert Mode</b> c-D <i>Date</i> c-T <i>Time</i> ${left.project.paths().length > 0 ? 'c-P <i>Path</i> ' : ''}c-H <i>Header</i> c-/ <i>Comment</i> c-J <i>Line</i> c-U <i>Uber Header</i> Esc <i>Exit</i>.`
   }
 }
 
