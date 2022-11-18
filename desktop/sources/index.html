@@ -116,6 +116,7 @@
       left.controller.add('insert', 'Insert', 'Time', () => { left.insert.time() }, 'CmdOrCtrl+T')
       left.controller.add('insert', 'Insert', 'Path', () => { left.insert.path() }, 'CmdOrCtrl+P')
       left.controller.add('insert', 'Insert', 'Header', () => { left.insert.header() }, 'CmdOrCtrl+H')
+      left.controller.add('insert', 'Insert', 'Dashed Line', () => { left.insert.dashedLine(left.operator.Options.colWidth)}, 'CmdOrCtrl+J')
       left.controller.add('insert', 'Insert', 'SubHeader', () => { left.insert.subheader() }, 'CmdOrCtrl+Shift+H')
       left.controller.add('insert', 'Insert', 'Comment', () => { left.insert.comment() }, 'CmdOrCtrl+/')
       left.controller.add('insert', 'Insert', 'Line', () => { left.insert.line() }, 'CmdOrCtrl+L')

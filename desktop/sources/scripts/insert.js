@@ -40,6 +40,22 @@ function Insert () {
     this.stop()
   }
 
+  this.dashedLine = function (numDashes) {
+    const isMultiline = left.selected().match(/[^\r\n]+/g)
+
+    if (left.prev_character() === EOL && !isMultiline) {
+      left.inject(Array(parseInt(numDashes)).join("-").toString())
+      left.inject('-')
+    } else if (isMultiline) {
+      left.inject_multiline(Arary(parseInt(numDashes)).join("-").toString())
+      left.inject('-')
+    } else {
+      left.inject_line(Array(parseInt(numDashes)).join("-").toString())
+      left.inject('-')
+    }
+    this.stop()
+  }
+
   this.header = function () {
     const isMultiline = left.selected().match(/[^\r\n]+/g)
 
@@ -101,7 +117,7 @@ function Insert () {
   }
 
   this.status = function () {
-    return `<b>Insert Mode</b> c-D <i>Date</i> c-T <i>Time</i> ${left.project.paths().length > 0 ? 'c-P <i>Path</i> ' : ''}c-H <i>Header</i> c-/ <i>Comment</i> Esc <i>Exit</i>.`
+    return `<b>Insert Mode</b> c-D <i>Date</i> c-T <i>Time</i> ${left.project.paths().length > 0 ? 'c-P <i>Path</i> ' : ''}c-H <i>Header</i> c-/ <i>Comment</i> c-J <i>Dashed Line</i> Esc <i>Exit</i>.`
   }
 }
 
